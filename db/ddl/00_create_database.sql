@@ -1,0 +1,2 @@
+CREATE DATABASE base;
+CREATE DATABASE base_ro;

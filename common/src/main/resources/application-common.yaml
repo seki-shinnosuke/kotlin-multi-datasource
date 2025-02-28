@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: base-common
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${SPRING_DATASOURCE_HOST:localhost:23306}/base?useSSL=${SPRING_DATASOURCE_SSL:false&allowPublicKeyRetrieval=true}&requireSSL=true&verifyServerCertificate=true&trustCertificateKeyStoreUrl=${DB_KEYSTORE_URL:file:///app/keystore/rds.jks}&trustCertificateKeyStoreType=JKS&trustCertificateKeyStorePassword=${DB_KEYSTORE_PASSWORD:base-keystore}&connectionTimeZone=SERVER&preserveInstants=true&enabledTLSProtocols=TLSv1.2&sessionVariables=sql_safe_updates=1
+    username: ${SPRING_DATASOURCE_USERNAME:base_user}
+    password: ${SPRING_DATASOURCE_PASSWORD:base_pass}
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      max-lifetime: 900000
+      keepalive-time: 30000
+      connection-test-query: SELECT CASE WHEN @@read_only + @@innodb_read_only = 0 THEN 1 ELSE (SELECT table_name FROM information_schema.tables) END AS `1`
+      maximum-pool-size: ${HIKARI_CP_MAX_POOL_SIZE:4}
+      leak-detection-threshold: 0
+secondary:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${SPRING_DATASOURCE_SECONDARY_HOST:localhost:23306}/base_ro?useSSL=${SPRING_DATASOURCE_SSL:false&allowPublicKeyRetrieval=true}&requireSSL=true&verifyServerCertificate=true&trustCertificateKeyStoreUrl=${DB_KEYSTORE_URL:file:///app/keystore/rds.jks}&trustCertificateKeyStoreType=JKS&trustCertificateKeyStorePassword=${DB_KEYSTORE_PASSWORD:base-keystore}&connectionTimeZone=SERVER&preserveInstants=true&enabledTLSProtocols=TLSv1.2&sessionVariables=sql_safe_updates=1
+    username: ${SPRING_DATASOURCE_USERNAME:base_user}
+    password: ${SPRING_DATASOURCE_PASSWORD:base_pass}
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      max-lifetime: 900000
+      keepalive-time: 30000
+      maximum-pool-size: ${HIKARI_CP_MAX_POOL_SIZE:4}
+      leak-detection-threshold: 0
+  jackson:
+    time-zone: Asia/Tokyo

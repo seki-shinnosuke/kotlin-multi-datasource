@@ -1,0 +1,52 @@
+[versions]
+java = "21"
+kotlin-jvm = "1.9.22"
+spring-boot = "3.2.3"
+spring-dependency-management = "1.1.4"
+ktlint = "12.0.3"
+apache-commons-lang3 = "3.14.0"
+apache-commons-text = "1.11.0"
+commons-io = "2.15.1"
+mybatis-spring = "3.0.3"
+mybatis-dynamic-sql = "1.5.0"
+mybatis-generator = "1.4.2"
+mysql-connector = "8.2.0"
+logstash-logback = "7.3"
+dbunit = "2.7.2"
+spring-test-dbunit = "1.3.0"
+mockito = "5.2.0"
+mockito-kotlin = "4.1.0"
+
+[libraries]
+kotlin-reflect = { group = "org.jetbrains.kotlin", name = "kotlin-reflect" }
+kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk8" }
+kotlin-gradle = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin" }
+spring-boot-gradle = { group = "org.springframework.boot", name = "spring-boot-gradle-plugin", version.ref = "spring-boot" }
+spring-boot-starter-aop = { group = "org.springframework.boot", name = "spring-boot-starter-aop" }
+spring-boot-starter-validation = { group = "org.springframework.boot", name = "spring-boot-starter-validation" }
+spring-boot-starter-actuator = { group = "org.springframework.boot", name = "spring-boot-starter-actuator" }
+spring-boot-starter-test = { group = "org.springframework.boot", name = "spring-boot-starter-test" }
+spring-web = { group = "org.springframework", name = "spring-web" }
+spring-boot-starter-web = { group = "org.springframework.boot", name = "spring-boot-starter-web" }
+dbunit = { group = "org.dbunit", name = "dbunit", version.ref = "dbunit" }
+spring-test-dbunit = { group = "com.github.springtestdbunit", name = "spring-test-dbunit", version.ref = "spring-test-dbunit" }
+apache-commons-lang3 = { group = "org.apache.commons", name = "commons-lang3", version.ref = "apache-commons-lang3" }
+apache-commons-text = { group = "org.apache.commons", name = "commons-text", version.ref = "apache-commons-text" }
+commons-io = { group = "commons-io", name = "commons-io", version.ref = "commons-io" }
+jackson-module-kotlin = { group = "com.fasterxml.jackson.module", name = "jackson-module-kotlin" }
+mybatis-spring = { group = "org.mybatis.spring.boot", name = "mybatis-spring-boot-starter", version.ref = "mybatis-spring" }
+mybatis-dynamic-sql = { group = "org.mybatis.dynamic-sql", name = "mybatis-dynamic-sql", version.ref = "mybatis-dynamic-sql" }
+mysql-connector = { group = "com.mysql", name = "mysql-connector-j", version.ref = "mysql-connector" }
+mybatis-generator = { group = "org.mybatis.generator", name = "mybatis-generator-core", version.ref = "mybatis-generator" }
+logstash-logback = { group = "net.logstash.logback", name = "logstash-logback-encoder", version.ref = "logstash-logback" }
+mockito = { group = "org.mockito", name = "mockito-inline", version.ref = "mockito" }
+mockito-kotlin = { group = "org.mockito.kotlin", name = "mockito-kotlin", version.ref = "mockito-kotlin" }
+jackson-databind = { group = "com.fasterxml.jackson.core", name = "jackson-databind" }
+jackson-datatype = { group = "com.fasterxml.jackson.datatype", name = "jackson-datatype-jsr310" }
+
+[plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin-jvm" }
+kotlin-spring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlin-jvm" }
+spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
+spring-dependency-management = { id = "io.spring.dependency-management", version.ref = "spring-dependency-management" }
+ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }

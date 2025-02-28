@@ -1,0 +1,17 @@
+server:
+  port: 8080
+  tomcat:
+    remoteip:
+      protocol-header: x-forwarded-proto
+  shutdown: graceful
+spring:
+  application:
+    name: base-api
+  lifecycle:
+    timeout-per-shutdown-phase: 30s
+management:
+  endpoints:
+    web:
+      base-path: /api
+      path-mapping:
+        health: /healthz

@@ -1,0 +1,22 @@
+services:
+  base-db:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile-mysql
+    image: base-db:1.0
+    container_name: base-db
+    networks:
+      - base
+    ports:
+      - "23306:23306"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./db/ddl/00_create_database.sql:/docker-entrypoint-initdb.d/00_create_database.sql
+      - ./db/ddl/01_create_user.sql:/docker-entrypoint-initdb.d/01_create_user.sql
+      - ./db/ddl/02_create_database.sql:/docker-entrypoint-initdb.d/02_create_database.sql
+      - ./docker/mysql_data:/var/lib/mysql
+
+networks:
+  base:
+    driver: bridge
